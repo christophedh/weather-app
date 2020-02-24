@@ -10,6 +10,7 @@ const partialsPath = path.join(__dirname, 'templates', 'partials')
 console.log(partialsPath)
 const app = express()
 
+console.log(process.env.PORT)
 const port = process.env.PORT || 3000
 
 //setup handlebars
