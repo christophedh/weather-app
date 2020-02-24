@@ -10,11 +10,18 @@ getWeather = async city => {
 }
 
 const manageWeather = (forecast = {}) => {
-    const { apparentTemperature = '', summary = '' } = forecast
+    console.log(forecast)
+    const { alerts = [], currently = {}, dayli = {} } = forecast
+    const { apparentTemperature = '', summary = '' } = currently
     document.getElementById('temperature').innerHTML = apparentTemperature
-        ? `Temperature: ${apparentTemperature}`
+        ? `Temperature: ${((apparentTemperature - 32) / 1.8).toFixed(2)} °C`
         : ''
     document.getElementById('summary').textContent = summary || ''
+
+    if (alerts[0]) {
+        const { description } = alerts[0]
+        document.getElementById('alert').textContent = `${description}` || ''
+    }
 }
 
 // fetch('/weather?city=montreal')

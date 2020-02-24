@@ -1,5 +1,5 @@
 const path = require('path')
-
+const fs = require('fs')
 const express = require('express')
 const hbs = require('hbs')
 const { getWeatherFromCity } = require('./src/getWeatherFromCity')
@@ -7,10 +7,10 @@ const { getWeatherFromCity } = require('./src/getWeatherFromCity')
 const publicPath = path.join(__dirname, 'public')
 const viewsPath = path.join(__dirname, 'templates', 'views')
 const partialsPath = path.join(__dirname, 'templates', 'partials')
-console.log(partialsPath)
+// console.log(partialsPath)
 const app = express()
 
-console.log('env', process.env)
+// console.log('env', process.env)
 const port = process.env.PORT || 3000
 
 //setup handlebars
@@ -62,9 +62,10 @@ app.get('/weather', async (req, res) => {
             throw Error('provide a city please')
         }
 
-        const { data: { currently } = {} } = await getWeatherFromCity(city)
+        // const { data: { currently } = {} } = await getWeatherFromCity(city)
+        const { data } = await getWeatherFromCity(city)
 
-        res.send(currently)
+        res.send(data)
     } catch (err) {
         res.statusMessage = err
         res.status(404).end()

@@ -16,7 +16,7 @@ const getWeather = ([longitude = 0, latitude = 0]) => {
 
 const getWeatherFromCity = async city => {
     let positions
-    const { data } = await getGeolocalisation(city)
+    const { data = {} } = await getGeolocalisation(city)
 
     const { features = [] } = data
 
@@ -28,6 +28,7 @@ const getWeatherFromCity = async city => {
     }
 
     const weather = await getWeather(positions)
+    // fs.writeFileSync('weather.json', JSON.stringify(weather))
     return weather
 }
 
