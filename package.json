@@ -11,7 +11,9 @@
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "serve:dev": "fuser -k 3000/tcp 2>/dev/null & nodemon -e js,hbs"
+        "serve:dev": "fuser -k 3000/tcp 2>/dev/null & nodemon -e js,hbs",
+        "serve:prod": "node index.js",
+        "heroku-postbuild": "npm run serve:prod"
     },
     "author": "",
     "license": "ISC",
