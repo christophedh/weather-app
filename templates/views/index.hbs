@@ -1,0 +1,19 @@
+{{> header}}
+<div class="row">
+    <div class="col-sm">
+        <form class="form-inline" id="form-search-weather">
+            <div class="form-group">
+                <input placeholder="city" class="form-control col-sm mr-sm-3 mt-2" type="text" name="city" id="city-weather-input" value="">
+            </div>
+            <button id="button-get-weather" class="btn btn-primary  mt-2">get weather</button>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm">
+        <p id="temperature"></p>
+        <p id="summary"></p>
+        <span id="error"></span>
+    </div>
+</div>
+{{> footer}}
